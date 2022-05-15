@@ -1,11 +1,8 @@
 package main
 
 import (
-	"bytes"
-	"io"
+	"fmt"
 	"log"
-	"net/http"
-	"net/url"
 	"os"
 
 	"github.com/aoisensi/go-yasuna/pkg/yasuna"
@@ -22,35 +19,12 @@ func main() {
 	if err := oauth2.Refresh(token); err != nil {
 		panic(err)
 	}
-	saveRefreshToken(token.RefreshToken)
+	fmt.Printf("::add-mask::%s\n", token.AccessToken)
+	fmt.Printf("::set-output name=refresh_token::%s\n", token.AccessToken)
 	twitter := yasuna.NewTwitter(nil, oauth2, token)
 	tweet, err := twitter.PostTweet(&yasuna.PostTweetParams{Text: "Hello, world!"})
 	if err != nil {
 		panic(err)
 	}
-	log.Printf("Successfully posted tweet: http://twitter.com/apexkilllogbot/status/%v\n", tweet.Data.ID)
-}
-
-func saveRefreshToken(token string) {
-	body := bytes.NewBufferString(url.Values{
-		"encrypted_value": {token},
-	}.Encode())
-	u := "https://api.github.com/repos/aoisensi/apex-kill-log-bot/actions/secrets/TWITTER_REFRESH_TOKEN"
-	req, err := http.NewRequest("PUT", u, body)
-	if err != nil {
-		panic(err)
-	}
-	req.Header.Add("Authorization", "Token "+os.Getenv("GITHUB_TOKEN"))
-	resp, err := http.DefaultClient.Do(req)
-	if err != nil {
-		panic(err)
-	}
-	defer resp.Body.Close()
-	code := resp.StatusCode
-	if 200 <= code && code < 300 {
-		log.Println("Refresh token saved")
-		return // OK
-	}
-	data, _ := io.ReadAll(resp.Body)
-	panic("failed to save refresh token: " + string(data))
+	log.Printf("Successfully posted tweet: http://twitter.com/ApexKillLogBot/status/%v\n", tweet.Data.ID)
 }

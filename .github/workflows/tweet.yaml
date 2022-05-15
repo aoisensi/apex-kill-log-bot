@@ -19,4 +19,10 @@ jobs:
         TWITTER_CLIENT_ID: ${{secrets.TWITTER_CLIENT_ID}}
         TWITTER_CLIENT_SECRET: ${{secrets.TWITTER_CLIENT_SECRET}}
         TWITTER_REFRESH_TOKEN: ${{secrets.TWITTER_REFRESH_TOKEN}}
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    - uses: hmanzur/actions-set-secret@v2
+      with:
+        name: TWITTER_REFRESH_TOKEN
+        value: ${{ steps.tweet.outputs.refresh_token }}
+        token: ${{ secrets.TOKEN_GITHUB }}
+
+        secret: true
