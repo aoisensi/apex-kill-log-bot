@@ -1,0 +1,8 @@
+github.com/aoisensi/go-yasuna v0.0.0-20220514233902-f76c0184e627 h1:I4mBSmqDcvBzMD11y4G/gzOACV9j2/sJA+KC3uwhgNI=
+github.com/aoisensi/go-yasuna v0.0.0-20220514233902-f76c0184e627/go.mod h1:EQ8oufxl82sVGB/ss0ubkmuBjc1ijqPq4AG6s6cY+Z4=
+github.com/aoisensi/go-yasuna v0.0.0-20220515010543-00fac85c7597 h1:1+0FHBmJSCWfqk71Huf+zn3N74wYKw9QakM1XWCrhXs=
+github.com/aoisensi/go-yasuna v0.0.0-20220515010543-00fac85c7597/go.mod h1:EQ8oufxl82sVGB/ss0ubkmuBjc1ijqPq4AG6s6cY+Z4=
+github.com/google/go-github v17.0.0+incompatible h1:N0LgJ1j65A7kfXrZnUDaYCs/Sf4rEjNlfyDHW9dolSY=
+github.com/google/go-github v17.0.0+incompatible/go.mod h1:zLgOLi98H3fifZn+44m+umXrS52loVEgC2AApnigrVQ=
+github.com/google/go-github/v44 v44.1.1-0.20220515011032-b642d879f3a5 h1:kBLEjjkMYMCAd2NzevhrLUnJwhaY9GBMxy7J4PSHTmc=
+github.com/google/go-github/v44 v44.1.1-0.20220515011032-b642d879f3a5/go.mod h1:iWn00mWcP6PRWHhXm0zuFJ8wbEjE5AGO5D5HXYM4zgw=
