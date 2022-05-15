@@ -31,6 +31,9 @@ func main() {
 
 	killer := randomUser(followers)
 	deader := randomUser(followers)
+	for killer.ID == deader.ID {
+		deader = randomUser(followers)
+	}
 
 	rate := random.Intn(MaxRate)
 
