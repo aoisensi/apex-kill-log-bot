@@ -9,6 +9,9 @@ import (
 )
 
 func main() {
+	fmt.Println(os.Getenv("TWITTER_CLIENT_ID"))
+	fmt.Println(os.Getenv("TWITTER_CLIENT_SECRET"))
+	fmt.Println(os.Getenv("TWITTER_REFRESH_TOKEN"))
 	oauth2 := &yasuna.OAuth2{
 		ClientID:     os.Getenv("TWITTER_CLIENT_ID"),
 		ClientSecret: os.Getenv("TWITTER_CLIENT_SECRET"),
