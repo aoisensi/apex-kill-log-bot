@@ -19,8 +19,12 @@ func main() {
 	if err := oauth2.Refresh(token); err != nil {
 		panic(err)
 	}
-	fmt.Printf("::add-mask::%s\n", token.AccessToken)
-	fmt.Printf("::add-mask::%s\n", token.RefreshToken)
-	fmt.Printf("::set-output name=access_token::%s\n", token.AccessToken)
-	fmt.Printf("::set-output name=refresh_token::%s\n", token.RefreshToken)
+	fmt.Printf("::add-mask::%s", token.AccessToken)
+	fmt.Println()
+	fmt.Printf("::add-mask::%s", token.RefreshToken)
+	fmt.Println()
+	fmt.Printf("::set-output name=access_token::%s", token.AccessToken)
+	fmt.Println()
+	fmt.Printf("::set-output name=refresh_token::%s", token.RefreshToken)
+	fmt.Println()
 }
