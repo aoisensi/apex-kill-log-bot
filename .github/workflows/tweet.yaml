@@ -24,7 +24,6 @@ jobs:
         name: TWITTER_REFRESH_TOKEN
         value: ${{ steps.tweet.outputs.refresh_token }}
         token: ${{ secrets.TOKEN_GITHUB }}
-      if: ${{ steps.tweet.outputs.refresh_token }}
     - run: go run ./tweet
       env:
         TWITTER_ACCESS_TOKEN: ${{ steps.tweet.outputs.access_token }}
