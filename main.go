@@ -18,6 +18,7 @@ func main() {
 	}
 	token := &yasuna.Token{
 		RefreshToken: os.Getenv("TWITTER_REFRESH_TOKEN"),
+		Scope:        yasuna.ScopeAll,
 	}
 	if err := oauth2.Refresh(token); err != nil {
 		panic(err)
