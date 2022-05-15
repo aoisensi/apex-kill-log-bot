@@ -14,7 +14,8 @@ jobs:
     - uses: actions/setup-go@v3
       with:
         go-version: '>=1.18'
-    - run: go run ./refresh
+    - id: refresh
+      run: go run ./refresh
       env:
         TWITTER_CLIENT_ID: ${{ secrets.TWITTER_CLIENT_ID }}
         TWITTER_CLIENT_SECRET: ${{ secrets.TWITTER_CLIENT_SECRET }}
@@ -22,9 +23,10 @@ jobs:
     - uses: hmanzur/actions-set-secret@v2.0.0
       with:
         name: TWITTER_REFRESH_TOKEN
-        value: ${{ steps.tweet.outputs.refresh_token }}
+        value: ${{ steps.refresh.outputs.refresh_token }}
         token: ${{ secrets.TOKEN_GITHUB }}
-    - run: go run ./tweet
+    - id: tweet
+      run: go run ./tweet
       env:
-        TWITTER_ACCESS_TOKEN: ${{ steps.tweet.outputs.access_token }}
+        TWITTER_ACCESS_TOKEN: ${{ steps.refresh.outputs.access_token }}
         TWITTER_USER_ID: ${{ secrets.TWITTER_USER_ID }}
